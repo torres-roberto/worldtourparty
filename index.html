@@ -34,18 +34,6 @@
     <img id="qrCodeImage" alt="QR Code" src="AroundTheWorld.png" />
   </div>
 
-  <script>
-    // Function to generate and display the QR code
-    function generateQRCode(url) {
-      var qrCodeImage = document.getElementById('qrCodeImage');
-      // Use QR Code Generator API to generate the QR code image
-      qrCodeImage.src = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(url)}&size=150x150`;
-    }
-
-    // Call the function with your desired URL
-    generateQRCode('YourURLHere');
-  </script>
-
 </body>
 </html>
 
