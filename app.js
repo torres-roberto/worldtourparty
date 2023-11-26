@@ -2,6 +2,10 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js';
 import { getFirestore, collection, addDoc, getDocs, updateDoc, doc } from 'https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js';
 
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
 const firebaseConfig = {
   apiKey: "AIzaSyDM6wIbjfeLwRjGH2cPRDzBsSdyE0z2NJY",
   authDomain: "worldtourparty-f4c4d.firebaseapp.com",
@@ -15,27 +19,25 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('submitButton').addEventListener('click', submitForm);
-    // loadAnswers();
+document.getElementById('submitButton').addEventListener('click', submitForm);
+
+ function submitForm() {
+        const name = document.getElementById('name').value;
+        const country = document.getElementById('country').value;
+        const share = document.getElementById('share').value;
+
+        if (name && country && share) {
+            saveToFirebase(name, country, share);
+            clearForm();
+            loadAnswers();
+        } else {
+            alert('Please enter all fields.');
+        }
+    }
 });
 
-function submitForm() {
-    console.log("Form submitted")
-    const name = document.getElementById('name').value;
-    const country = document.getElementById('country').value;
-    const share = document.getElementById('share').value;
 
-    if (name && country && share) {
-        saveToFirebase(name, country, share);
-        clearForm();
-        loadAnswers();
-    } else {
-        alert('Please enter all fields.');
-    }
-}
-
-async function saveToFirebase(name, country, share) {
+function saveToFirebase(name, country, share) {
     try {
         const docRef = await addDoc(collection(db, 'travelers'), {
             name: name,
@@ -49,7 +51,7 @@ async function saveToFirebase(name, country, share) {
     }
 }
 
-async function loadAnswers() {
+function loadAnswers() {
     const answersList = document.getElementById('answersList');
     answersList.innerHTML = '';
 
