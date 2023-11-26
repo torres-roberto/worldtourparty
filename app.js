@@ -22,6 +22,7 @@ const db = getFirestore(app);
 document.getElementById('submitButton').addEventListener('click', submitForm);
 
  function submitForm() {
+	console.log("Lets submit");
         const name = document.getElementById('name').value;
         const country = document.getElementById('country').value;
         const share = document.getElementById('share').value;
