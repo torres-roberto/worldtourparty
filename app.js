@@ -3,12 +3,13 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.6.0/firebas
 import { getFirestore, collection, addDoc, getDocs, updateDoc, doc } from 'https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js';
 
 const firebaseConfig = {
-    apiKey: 'YOUR_API_KEY',
-    authDomain: 'YOUR_AUTH_DOMAIN',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_STORAGE_BUCKET',
-    messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
-    appId: 'YOUR_APP_ID'
+  apiKey: "AIzaSyDM6wIbjfeLwRjGH2cPRDzBsSdyE0z2NJY",
+  authDomain: "worldtourparty-f4c4d.firebaseapp.com",
+  projectId: "worldtourparty-f4c4d",
+  storageBucket: "worldtourparty-f4c4d.appspot.com",
+  messagingSenderId: "337150884763",
+  appId: "1:337150884763:web:fcaad60d8fad1c7c35bf3e",
+  measurementId: "G-RB26EDRQN7"
 };
 
 const app = initializeApp(firebaseConfig);
