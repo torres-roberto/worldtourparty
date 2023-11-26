@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function submitForm() {
+    console.log("Form submitted")
     const name = document.getElementById('name').value;
     const country = document.getElementById('country').value;
     const share = document.getElementById('share').value;
