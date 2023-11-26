@@ -20,13 +20,18 @@
     }
 
     #banner {
-      background-color: #3498db;
-      color: #fff;
+      color: black;
       padding: 10px;
-      font-size: 24px;
+      font-size: 78px;
       font-weight: bold;
       margin-bottom: 20px;
       width: 100%;
+      font-family: 'SubwayTicker', sans-serif;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: scrollBanner 12s linear infinite; /* Adjust the duration as needed */
+      margin-bottom: 20px;
+      margin-top: 50px;
     }
 
     #qrCodeContainer {
@@ -41,10 +46,27 @@
     }
 
     #countdown {
-      font-family: 'Subway Ticker', sans-serif;
-      font-size: 36px;
+      font-family: 'SubwayTicker', sans-serif;
+      font-size: 78px; /* Adjust the font size as needed */
       font-weight: bold;
       margin-top: 20px;
+      margin-bottom: 50px;
+    }
+
+    @font-face {
+      font-family: 'SubwayTicker';
+      src: url('SUBWT___.ttf') format('woff'); /* Update the path accordingly */
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @keyframes scrollBanner {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
     }
   </style>
 </head>
