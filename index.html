@@ -3,17 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QR Code Generator</title>
+  <title>World Tour Party</title>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Subway+Ticker&display=swap">
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
       background-color: #f0f0f0;
+      text-align: center;
+    }
+
+    #banner {
+      background-color: #3498db;
+      color: #fff;
+      padding: 10px;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      width: 100%;
     }
 
     #qrCodeContainer {
@@ -26,13 +39,50 @@
       width: 100%;
       height: auto;
     }
+
+    #countdown {
+      font-family: 'Subway Ticker', sans-serif;
+      font-size: 36px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
 
+  <div id="banner">
+    World Tour Party
+  </div>
+
   <div id="qrCodeContainer">
     <img id="qrCodeImage" alt="QR Code" src="AroundTheWorld.png" />
   </div>
+
+  <div id="countdown"></div>
+
+  <script>
+    // Countdown timer
+    const countdownElement = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const targetDate = new Date('December 9, 2023 00:00:00 GMT+0000');
+      const currentDate = new Date();
+      const timeDifference = targetDate - currentDate;
+
+      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+      countdownElement.innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    // Update countdown every second
+    setInterval(updateCountdown, 1000);
+
+    // Initial call to set the initial countdown value
+    updateCountdown();
+  </script>
 
 </body>
 </html>
