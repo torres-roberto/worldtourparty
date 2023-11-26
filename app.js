@@ -15,7 +15,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 document.addEventListener('DOMContentLoaded', function () {
-    loadAnswers();
+    document.getElementById('submitButton').addEventListener('click', submitForm);
+    // loadAnswers();
 });
 
 function submitForm() {
