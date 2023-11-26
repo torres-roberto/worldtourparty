@@ -1,36 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>World Traveler Gathering</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    #qrCodeContainer {
+      max-width: 80%;
+      width: 300px;
+      margin: auto;
+    }
+
+    #qrCodeImage {
+      width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>World Traveler Gathering</h1>
-        <div>
-            <label for="name">Your Name?</label>
-            <input type="text" id="name" placeholder="Enter your name">
-        </div>
-        <div>
-            <label for="country">Which country will you represent?</label>
-            <input type="text" id="country" placeholder="Enter your country">
-        </div>
-        <div>
-            <label for="share">What would you like to bring to share?</label>
-            <input type="text" id="share" placeholder="e.g., food, drinks">
-        </div>
-	<button id="submitButton">Submit</button>
-        <div id="answers">
-            <h2>Travelers' Answers:</h2>
-            <ul id="answersList"></ul>
-        </div>
-    </div>
+  <div id="qrCodeContainer">
+    <img id="qrCodeImage" alt="QR Code" src="" />
+  </div>
 
-    <!-- Load Firebase scripts before app.js -->
-    <script type="module" src="app.js"></script>
+  <script>
+    // Function to generate and display the QR code
+    function generateQRCode(url) {
+      var qrCodeImage = document.getElementById('qrCodeImage');
+      // Use QR Code Generator API to generate the QR code image
+      qrCodeImage.src = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(url)}&size=150x150`;
+    }
+
+    // Call the function with your desired URL
+    generateQRCode('YourURLHere');
+  </script>
 
 </body>
 </html>
