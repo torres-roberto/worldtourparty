@@ -17,7 +17,7 @@ function submitForm() {
 
 function postToGoogleSheet(name, country) {
     // You need to replace 'YOUR_GOOGLE_SCRIPT_URL' with the URL of your Google Apps Script
-    const scriptUrl = 'YOUR_GOOGLE_SCRIPT_URL';
+    const scriptUrl = 'https://script.google.com/home/projects/13RaTOi97UCgS-cMQGjVpll5fXRvPZdsd9Ogu6g1aXsv7jwJGrufnASZw/edit';
 
     const formData = new FormData();
     formData.append('name', name);
@@ -34,7 +34,7 @@ function postToGoogleSheet(name, country) {
 
 function loadAnswers() {
     // You need to replace 'YOUR_GOOGLE_SHEET_URL' with the URL of your Google Sheet
-    const sheetUrl = 'YOUR_GOOGLE_SHEET_URL';
+    const sheetUrl = 'https://docs.google.com/spreadsheets/d/1-XSJYcsD3JP4Bf1XpFo6Ef2cj561T_SWj2KN5qFlqDQ';
 
     fetch(sheetUrl)
         .then(response => response.json())
