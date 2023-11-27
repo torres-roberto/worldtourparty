@@ -40,9 +40,26 @@
     }
 
     #qrCodeImage {
-      width: 100%;
-      height: auto;
+      cursor: pointer;
+      transition: transform 0.3s ease; /* Smooth transition for the bounce effect */
     }
+
+    #qrCodeImage:hover {
+      transform: translateY(-10px); /* Adjust the bounce distance as needed */
+    }
+
+    @keyframes bounceAnimation {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-20px); /* Adjust the bounce distance as needed */
+      }
+      60% {
+        transform: translateY(-10px); /* Adjust the bounce distance as needed */
+      }
+    }
+
 
     #countdown {
       font-family: 'SubwayTicker', sans-serif;
@@ -84,12 +101,16 @@
 
   <div id="qrCodeContainer">
     <div id="instructions">Hold down on the image for more! </div>
-    <img id="qrCodeImage" alt="QR Code" src="AroundTheWorld.png" />
+    <img id="qrCodeImage" alt="QR Code" src="AroundTheWorld.png" onclick="navigateToURL()" />
   </div>
 
   <div id="countdown"></div>
 
   <script>
+    function navigateToURL() {
+      window.location.href = 'https://docs.google.com/document/d/1B4BkeCgem3g2dlOgVg4jOZw7AloKb943d6qur3Bs1q4/';
+    }
+
     // Countdown timer
     const countdownElement = document.getElementById('countdown');
 
