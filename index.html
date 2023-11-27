@@ -26,16 +26,16 @@
       font-weight: bold;
       margin-bottom: 20px;
       width: 100%;
-      font-family: 'SubwayTicker', sans-serif;
+      font-family: 'HighSpeed', sans-serif;
       white-space: nowrap;
       overflow: hidden;
-      animation: scrollBanner 12s linear infinite; /* Adjust the duration as needed */
+      animation: scrollBanner 15s linear infinite; /* Adjust the duration as needed */
       margin-top: 30px;
     }
 
     #qrCodeContainer {
-      max-width: 70%;
-      width: 250px;
+      max-width: 80%;
+      width: 300px;
       margin: auto;
     }
 
@@ -71,7 +71,7 @@
 
     #instructions {
       font-family: 'SubwayTicker', sans-serif;
-      font-size: 20px; /* Adjust the font size as needed */
+      font-size: 40px; /* Adjust the font size as needed */
       margin-top: 15px;
       margin-bottom: 15px;
     }
@@ -79,6 +79,13 @@
     @font-face {
       font-family: 'SubwayTicker';
       src: url('SUBWT___.ttf') format('woff'); /* Update the path accordingly */
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'HighSpeed';
+      src: url('HIGHSPEED.TTF') format('woff'); /* Update the path accordingly */
       font-weight: normal;
       font-style: normal;
     }
@@ -96,7 +103,7 @@
 <body>
 
   <div id="banner">
-    AroundTheWorld Party
+    Around The World Party
   </div>
 
   <div id="qrCodeContainer">
