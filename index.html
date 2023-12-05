@@ -15,7 +15,7 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      background-color: #f0f0f0;
+      background-color: white;
       text-align: center;
     }
 
@@ -132,7 +132,7 @@
 
   <div id="countdown"></div>
   <div onclick="navigateToCameo()">
-    <img class="clickable" width="5" height="5" id="fire-heart" src="fire-heart.png" alt="Easter Egg" a="">
+    <img class="clickable" width="20" height="20" id="fire-heart" src="kevin.png" alt="Easter Egg" a="">
   </div>
   <script>
     function navigateToURL() {
@@ -143,7 +143,7 @@
       answer = prompt("What word will Jess get as a tattoo?")
       console.log(answer);
       if (typeof answer === 'string' && answer.toUpperCase() == "WILD") {
-        alert("You're in. Now let's see your prize!")
+        alert("❤️‍🔥 You're in. Now let's see your prize! ❤️‍🔥 ")
         window.location.href = 'https://v.cameo.com/e/FbsUMoczfFb';
       }
       else {
