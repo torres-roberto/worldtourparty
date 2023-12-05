@@ -141,7 +141,7 @@
 
     function navigateToCameo() {
       answer = prompt("Top secret acronym!")
-      if (typeof answer === 'string' && answer.include("wypdim")) {
+      if (typeof answer === 'string' && answer.toUpperCase().include("WYPDIM")) {
         window.location.href = 'https://v.cameo.com/e/FbsUMoczfFb';
       }
     }
