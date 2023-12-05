@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
+
+
+
+  
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+
+  <title>CodePen - Rotating globe</title>
+
+    <link rel="canonical" href="https://codepen.io/jammastergirish/pen/oONbMV">
+  
+  
+  
+  
+<style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+#chartdiv {
+  width: 100%;
+  height: 500px;
+max-width:100%;
+  background-color: white;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+j  
+  
+</head>
+
+<body translate="no">
+  <script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/maps.js"></script>
+<script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+<div id="chartdiv"></div>
+
+  
+      <script id="rendered-js" >
+/**
+ * ---------------------------------------
+ * This demo was created using amCharts 4.
+ * 
+ * For more information visit:
+ * https://www.amcharts.com/
+ * 
+ * Documentation is available at:
+ * https://www.amcharts.com/docs/v4/
+ * ---------------------------------------
+ */
+
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+// Set map definition
+chart.geodata = am4geodata_worldLow;
+
+// Set projection
+chart.projection = new am4maps.projections.Orthographic();
+chart.panBehavior = "rotateLongLat";
+chart.deltaLatitude = -20;
+chart.padding(20, 20, 20, 20);
+
+// Create map polygon series
+var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+// Make map load polygon (like country names) data from GeoJSON
+polygonSeries.useGeodata = true;
+//polygonSeries.include = ["BR", "UA", "MX", "CI"];
+
+// Configure series
+var polygonTemplate = polygonSeries.mapPolygons.template;
+polygonTemplate.tooltipText = "{name}";
+polygonTemplate.fill = am4core.color("black");
+polygonTemplate.stroke = am4core.color("#000033");
+polygonTemplate.strokeWidth = 0.5;
+polygonTemplate.cursorOverStyle = am4core.MouseCursorStyle.pointer;
+//polygonTemplate.url = "https://docs.google.com/document/d/1B4BkeCgem3g2dlOgVg4jOZw7AloKb943d6qur3Bs1q4/edit";
+polygonTemplate.urlTarget = "_blank";
+document.getElementById("picked-country").innerHTML = polygonTemplate.name
+
+var graticuleSeries = chart.series.push(new am4maps.GraticuleSeries());
+graticuleSeries.mapLines.template.line.stroke = am4core.color("#ffffff");
+graticuleSeries.mapLines.template.line.strokeOpacity = 0.08;
+graticuleSeries.fitExtent = false;
+
+
+
+chart.backgroundSeries.mapPolygons.template.polygon.fillOpacity = 0.1;
+chart.backgroundSeries.mapPolygons.template.polygon.fill = am4core.color("cyan");
+
+// Create hover state and set alternative fill color
+var hs = polygonTemplate.states.create("hover");
+hs.properties.fill = chart.colors.getIndex(0).brighten(-0.5);
+
+let animation;
+setTimeout(function () {
+  animation = chart.animate({ property: "deltaLongitude", to: 100000 }, 20000000);
+}, 3000);
+
+chart.seriesContainer.events.on("down", function () {
+   animation.stop();
+});
+//# sourceURL=pen.js
+    </script>
+
+  
+</body>
+
+</html>
