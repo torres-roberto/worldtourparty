@@ -48,6 +48,19 @@
       transform: translateY(-10px); /* Adjust the bounce distance as needed */
     }
 
+    .clickable {
+      cursor: pointer;
+      transition: transform 0.3s ease; /* Smooth transition for the bounce effect */
+    }
+    .clickable:hover {
+      transform: translateY(-1px); /* Adjust the bounce distance as needed */
+    }
+
+    .clickable:focus {
+      opacity: 0;
+      transition: all 1s;
+    }
+
     @keyframes bounceAnimation {
       0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
@@ -74,6 +87,17 @@
       font-size: 20px; /* Adjust the font size as needed */
       margin-top: 15px;
       margin-bottom: 15px;
+    }
+
+    #fire-heart {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+
+  /* And if you want the div to be full-width: */
+  /* left: 0;
+  right: 0; */
+      
     }
 
     @font-face {
@@ -112,7 +136,9 @@
   </div>
 
   <div id="countdown"></div>
-
+  <a href=”https://google.com“>
+    <img class="clickable" width="3" height="3" id="fire-heart" src="fire-heart.png" alt="Easter Egg" a="">
+  </a>
   <script>
     function navigateToURL() {
       window.location.href = 'https://docs.google.com/document/d/1B4BkeCgem3g2dlOgVg4jOZw7AloKb943d6qur3Bs1q4/';
