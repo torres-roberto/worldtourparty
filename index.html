@@ -24,19 +24,21 @@
       padding: 10px;
       font-size: 20px;
       font-weight: bold;
-      margin-bottom: 20px;
+      /* margin-bottom: 20px; */
       width: 100%;
       font-family: 'HighSpeed', sans-serif;
       white-space: nowrap;
       overflow: hidden;
       animation: scrollBanner 15s linear infinite; /* Adjust the duration as needed */
-      margin-top: 50px;
+      padding: 40px;
     }
 
     #qrCodeContainer {
       max-width: 80%;
-      width: 300px;
+      width: 50%;
       margin: auto;
+      position: sticky;
+      padding: 10px;
     }
 
     #qrCodeImage {
@@ -78,8 +80,9 @@
       font-family: 'SubwayTicker', sans-serif;
       font-size: 30px; /* Adjust the font size as needed */
       font-weight: bold;
-      margin-top: 20px;
-      margin-bottom: 100px;
+      /* padding: 40px; */
+      /* margin-top: 20px; */
+      margin-bottom: 150px;
     }
 
     #instructions {
@@ -87,6 +90,7 @@
       font-size: 20px; /* Adjust the font size as needed */
       margin-top: 15px;
       margin-bottom: 15px;
+      text-align: center;
     }
 
     #fire-heart {
@@ -140,9 +144,20 @@
     }
 
     function navigateToCameo() {
-      answer = prompt("What word will Jess get as a tattoo?")
-      console.log(answer);
-      if (typeof answer === 'string' && answer.toUpperCase() == "WILD") {
+      questions = [
+       {question: "What word will Jess get as a tattoo?", answer: "wild"},
+       {question: "What is Jess's boxing trainer's name?", answer: "Moses"},
+       {question: "What is Jess's least favorite color?", answer: "pink"},
+       {question: "How many siblings does Jess have?", answer: "2"},
+       {question: "What is Jess's family dog's name?", answer: "curt"},
+      ]
+
+      const randomPrompt = questions[Math.floor(Math.random() * questions.length)];
+
+
+      answer = prompt(randomPrompt.question)
+      console.log(randomPrompt.question, randomPrompt.answer);
+      if (typeof answer === 'string' && answer.toUpperCase() == randomPrompt.answer.toUpperCase()) {
         alert("You're in.\n\n ❤️‍🔥🥷🧊😈👸📈\n\nA friend of mine wants to wish you a happy birthday.\nLet's find out who! ➡️🚪🏆")
         window.location.href = 'https://v.cameo.com/e/FbsUMoczfFb';
       }
